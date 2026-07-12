@@ -1,0 +1,62 @@
+/**
+ * Design Tokens
+ * ---------------------------------------------------------------------------
+ * Figma variables <-> CSS variable mapping table
+ * (Figma variable "collection/group/name" maps 1:1 to a CSS custom
+ * property by replacing "/" with "-". Keep this table in sync with the
+ * Figma variables panel so Dev Mode MCP roundtrips stay lossless.)
+ *
+ * Figma variable              | CSS variable                | Value
+ * -----------------------------------------------------------------------
+ * color/brand/primary         | --color-brand-primary        | #111111
+ * color/brand/accent          | --color-brand-accent         | #FF6B00
+ * color/surface/default       | --color-surface-default       | #FFFFFF
+ * color/surface/subtle        | --color-surface-subtle        | #F5F5F5
+ * color/text/primary          | --color-text-primary          | #111111
+ * color/text/secondary        | --color-text-secondary        | #757575
+ * spacing/xs                  | --spacing-xs                  | 4px
+ * spacing/sm                  | --spacing-sm                  | 8px
+ * spacing/md                  | --spacing-md                  | 16px
+ * spacing/lg                  | --spacing-lg                  | 24px
+ * spacing/xl                  | --spacing-xl                  | 40px
+ * radius/sm                   | --radius-sm                   | 4px
+ * radius/md                   | --radius-md                   | 8px
+ * radius/full                 | --radius-full                 | 9999px
+ * font-size/sm                | --font-size-sm                | 14px
+ * font-size/md                | --font-size-md                | 16px
+ * font-size/lg                | --font-size-lg                | 24px
+ * font-size/xl                | --font-size-xl                | 40px
+ * -----------------------------------------------------------------------
+ */
+
+:root {
+  /* color/brand */
+  --color-brand-primary: #111111;
+  --color-brand-accent: #ff6b00;
+
+  /* color/surface */
+  --color-surface-default: #ffffff;
+  --color-surface-subtle: #f5f5f5;
+
+  /* color/text */
+  --color-text-primary: #111111;
+  --color-text-secondary: #757575;
+
+  /* spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+
+  /* radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 9999px;
+
+  /* font-size */
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 24px;
+  --font-size-xl: 40px;
+}
