@@ -1,62 +1,322 @@
 /**
- * Design Tokens
+ * Design Tokens — generated from the Figma design system library
+ * "Brand Design System — Library" via MCP get_variable_defs.
  * ---------------------------------------------------------------------------
- * Figma variables <-> CSS variable mapping table
- * (Figma variable "collection/group/name" maps 1:1 to a CSS custom
- * property by replacing "/" with "-". Keep this table in sync with the
- * Figma variables panel so Dev Mode MCP roundtrips stay lossless.)
+ * Custom-property names match Figma's WEB code syntax exactly
+ * (Figma "collection/group/name" → "--group-name", "/" → "-").
  *
- * Figma variable              | CSS variable                | Value
- * -----------------------------------------------------------------------
- * color/brand/primary         | --color-brand-primary        | #111111
- * color/brand/accent          | --color-brand-accent         | #FF6B00
- * color/surface/default       | --color-surface-default       | #FFFFFF
- * color/surface/subtle        | --color-surface-subtle        | #F5F5F5
- * color/text/primary          | --color-text-primary          | #111111
- * color/text/secondary        | --color-text-secondary        | #757575
- * spacing/xs                  | --spacing-xs                  | 4px
- * spacing/sm                  | --spacing-sm                  | 8px
- * spacing/md                  | --spacing-md                  | 16px
- * spacing/lg                  | --spacing-lg                  | 24px
- * spacing/xl                  | --spacing-xl                  | 40px
- * radius/sm                   | --radius-sm                   | 4px
- * radius/md                   | --radius-md                   | 8px
- * radius/full                 | --radius-full                 | 9999px
- * font-size/sm                | --font-size-sm                | 14px
- * font-size/md                | --font-size-md                | 16px
- * font-size/lg                | --font-size-lg                | 24px
- * font-size/xl                | --font-size-xl                | 40px
- * -----------------------------------------------------------------------
+ * Structure:
+ *   :root                      → primitives (raw values, theme-independent)
+ *   :root, [data-theme=light]  → semantic tokens, light mode (alias primitives)
+ *   [data-theme=dark]          → semantic COLOR overrides, dark mode
+ *
+ * Do not edit values by hand — edit in Figma, publish, regenerate.
+ * Opacity primitives use Figma's 0–100 scale (not CSS 0–1); unused by app.
+ * font-family tokens keep the Figma family first, with a standard fallback
+ * stack appended for graceful rendering when the webfont is unavailable.
  */
 
 :root {
-  /* color/brand */
-  --color-brand-primary: #111111;
-  --color-brand-accent: #ff6b00;
+  /* ===================== PRIMITIVES : color ===================== */
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-transparent: rgba(255, 255, 255, 0);
 
-  /* color/surface */
-  --color-surface-default: #ffffff;
-  --color-surface-subtle: #f5f5f5;
+  --color-grey-50: #fafafa;
+  --color-grey-100: #f5f5f5;
+  --color-grey-200: #e5e5e5;
+  --color-grey-300: #d4d4d4;
+  --color-grey-400: #a3a3a3;
+  --color-grey-500: #757575;
+  --color-grey-600: #565656;
+  --color-grey-700: #404040;
+  --color-grey-800: #2b2b2b;
+  --color-grey-900: #1a1a1a;
+  --color-grey-950: #0f0f0f;
 
-  /* color/text */
-  --color-text-primary: #111111;
-  --color-text-secondary: #757575;
+  --color-volt-50: #fbffe5;
+  --color-volt-100: #f5ffb8;
+  --color-volt-200: #ecff85;
+  --color-volt-300: #e6ff57;
+  --color-volt-400: #e2ff2b;
+  --color-volt-500: #dfff00;
+  --color-volt-600: #a9c400;
+  --color-volt-700: #5c6b00;
+  --color-volt-800: #414d00;
+  --color-volt-900: #2b3300;
+  --color-volt-950: #1a1f00;
 
-  /* spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 40px;
+  --color-red-50: #fdf3f2;
+  --color-red-100: #fadad6;
+  --color-red-200: #f5b3ac;
+  --color-red-300: #ee8880;
+  --color-red-400: #e45d51;
+  --color-red-500: #dd473a;
+  --color-red-600: #d33a2c;
+  --color-red-700: #b02a1e;
+  --color-red-800: #8a2016;
+  --color-red-900: #5e160f;
+  --color-red-950: #3a0d09;
 
-  /* radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-full: 9999px;
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+  --color-success-950: #052e16;
 
-  /* font-size */
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-200: #bfdbfe;
+  --color-info-300: #93c5fd;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  --color-info-800: #1e40af;
+  --color-info-900: #1e3a8a;
+  --color-info-950: #172554;
+
+  /* ===================== PRIMITIVES : dimension ===================== */
+  --size-0: 0px;
+  --size-1: 4px;
+  --size-2: 8px;
+  --size-3: 12px;
+  --size-4: 16px;
+  --size-5: 20px;
+  --size-6: 24px;
+  --size-8: 32px;
+  --size-10: 40px;
+  --size-12: 48px;
+  --size-16: 64px;
+  --size-20: 80px;
+  --size-24: 96px;
+  --size-32: 128px;
+
+  /* ===================== PRIMITIVES : radius ===================== */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 9999px;
+  --radius-square-none: 0px;
+  --radius-square-xs: 0px;
+  --radius-square-sm: 4px;
+  --radius-square-md: 4px;
+  --radius-square-pill: 8px;
+
+  /* ===================== PRIMITIVES : number ===================== */
+  --opacity-0: 0;
+  --opacity-40: 40;
+  --opacity-60: 60;
+  --opacity-100: 100;
+  --stroke-width-1: 1px;
+  --stroke-width-1-5: 1.5px;
+  --stroke-width-2: 2px;
+
+  /* ===================== PRIMITIVES : typography ===================== */
+  --font-family-display: "Anton", sans-serif;
+  --font-family-body: "Inter", system-ui, sans-serif;
+  --font-family-jp: "Noto Sans JP", system-ui, sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-md: 16px;
-  --font-size-lg: 24px;
-  --font-size-xl: 40px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 48px;
+  --font-size-5xl: 64px;
+  --font-size-6xl: 96px;
+
+  --line-height-xs: 16px;
+  --line-height-sm: 20px;
+  --line-height-md: 24px;
+  --line-height-lg: 28px;
+  --line-height-xl: 28px;
+  --line-height-2xl: 30px;
+  --line-height-3xl: 38px;
+  --line-height-4xl: 48px;
+  --line-height-5xl: 64px;
+  --line-height-6xl: 96px;
+  --line-height-jp-body: 28px;
+  --line-height-jp-heading: 44px;
+
+  --tracking-tight: -1px;
+  --tracking-normal: 0px;
+  --tracking-wide: 4px;
+
+  --paragraph-spacing-none: 0px;
+  --paragraph-spacing-md: 8px;
+}
+
+:root,
+[data-theme="light"] {
+  /* ===================== SEMANTIC : color (light) ===================== */
+  --surface-bg-canvas: var(--color-white);
+  --surface-bg-default: var(--color-white);
+  --surface-bg-product: var(--color-grey-100);
+  --surface-bg-product-hover: var(--color-grey-200);
+  --surface-bg-raised: var(--color-white);
+  --surface-bg-inverse: var(--color-black);
+  --surface-bg-accent: var(--color-volt-500);
+  --surface-bg-disabled: var(--color-grey-100);
+  --surface-bg-sale: var(--color-red-600);
+
+  --action-primary-default: var(--color-black);
+  --action-primary-hover: var(--color-grey-800);
+  --action-primary-pressed: var(--color-grey-900);
+  --action-secondary-border: var(--color-black);
+
+  --text-default: var(--color-black);
+  --text-secondary: var(--color-grey-500);
+  --text-inverse: var(--color-white);
+  --text-on-action: var(--color-white);
+  --text-on-accent: var(--color-black);
+  --text-accent: var(--color-volt-700);
+  --text-sale: var(--color-red-600);
+  --text-disabled: var(--color-grey-300);
+
+  --icon-default: var(--color-black);
+  --icon-secondary: var(--color-grey-500);
+  --icon-inverse: var(--color-white);
+  --icon-disabled: var(--color-grey-300);
+
+  --border-default: var(--color-grey-200);
+  --border-strong: var(--color-black);
+  --border-focus: var(--color-info-500);
+  --border-sale: var(--color-red-600);
+
+  /* ===================== SEMANTIC : dimension ===================== */
+  --space-inset-xs: var(--size-2);
+  --space-inset-sm: var(--size-3);
+  --space-inset-md: var(--size-4);
+  --space-inset-lg: var(--size-6);
+  --space-inset-xl: var(--size-8);
+  --space-stack-xs: var(--size-2);
+  --space-stack-sm: var(--size-4);
+  --space-stack-md: var(--size-6);
+  --space-stack-lg: var(--size-8);
+  --space-stack-xl: var(--size-12);
+  --space-section-sm: var(--size-12);
+  --space-section-md: var(--size-16);
+  --space-section-lg: var(--size-20);
+  --space-section-xl: var(--size-24);
+  --space-section-2xl: var(--size-32);
+
+  /* ===================== SEMANTIC : radius (default mode) ===================== */
+  --radius-control: var(--radius-pill);
+  --radius-card: var(--radius-sm);
+  --radius-chip: var(--radius-pill);
+  --radius-input: var(--radius-pill);
+
+  /* ===================== SEMANTIC : number ===================== */
+  --opacity-disabled: var(--opacity-40);
+  --stroke-width-border: var(--stroke-width-1);
+  --stroke-width-button: var(--stroke-width-1-5);
+  --stroke-width-focus: var(--stroke-width-2);
+
+  /* ===================== SEMANTIC : typography ===================== */
+  --typography-display-xl-font-family: var(--font-family-display);
+  --typography-display-xl-font-weight: var(--font-weight-bold);
+  --typography-display-xl-font-size: var(--font-size-6xl);
+  --typography-display-xl-line-height: var(--line-height-6xl);
+  --typography-display-xl-letter-spacing: var(--tracking-tight);
+  --typography-display-xl-paragraph-spacing: var(--paragraph-spacing-none);
+
+  --typography-display-lg-font-family: var(--font-family-display);
+  --typography-display-lg-font-weight: var(--font-weight-bold);
+  --typography-display-lg-font-size: var(--font-size-5xl);
+  --typography-display-lg-line-height: var(--line-height-5xl);
+  --typography-display-lg-letter-spacing: var(--tracking-tight);
+  --typography-display-lg-paragraph-spacing: var(--paragraph-spacing-none);
+
+  --typography-heading-md-font-family: var(--font-family-body);
+  --typography-heading-md-font-weight: var(--font-weight-bold);
+  --typography-heading-md-font-size: var(--font-size-3xl);
+  --typography-heading-md-line-height: var(--line-height-3xl);
+  --typography-heading-md-letter-spacing: var(--tracking-normal);
+  --typography-heading-md-paragraph-spacing: var(--paragraph-spacing-none);
+
+  --typography-body-lg-font-family: var(--font-family-body);
+  --typography-body-lg-font-weight: var(--font-weight-regular);
+  --typography-body-lg-font-size: var(--font-size-lg);
+  --typography-body-lg-line-height: var(--line-height-lg);
+  --typography-body-lg-letter-spacing: var(--tracking-normal);
+  --typography-body-lg-paragraph-spacing: var(--paragraph-spacing-none);
+
+  --typography-body-md-font-family: var(--font-family-body);
+  --typography-body-md-font-weight: var(--font-weight-regular);
+  --typography-body-md-font-size: var(--font-size-md);
+  --typography-body-md-line-height: var(--line-height-md);
+  --typography-body-md-letter-spacing: var(--tracking-normal);
+  --typography-body-md-paragraph-spacing: var(--paragraph-spacing-none);
+
+  --typography-caption-font-family: var(--font-family-body);
+  --typography-caption-font-weight: var(--font-weight-medium);
+  --typography-caption-font-size: var(--font-size-xs);
+  --typography-caption-line-height: var(--line-height-xs);
+  --typography-caption-letter-spacing: var(--tracking-wide);
+  --typography-caption-paragraph-spacing: var(--paragraph-spacing-none);
+
+  --typography-jp-heading-font-family: var(--font-family-jp);
+  --typography-jp-heading-font-weight: var(--font-weight-bold);
+  --typography-jp-heading-font-size: var(--font-size-3xl);
+  --typography-jp-heading-line-height: var(--line-height-jp-heading);
+  --typography-jp-heading-letter-spacing: var(--tracking-normal);
+  --typography-jp-heading-paragraph-spacing: var(--paragraph-spacing-none);
+
+  --typography-jp-body-font-family: var(--font-family-jp);
+  --typography-jp-body-font-weight: var(--font-weight-regular);
+  --typography-jp-body-font-size: var(--font-size-md);
+  --typography-jp-body-line-height: var(--line-height-jp-body);
+  --typography-jp-body-letter-spacing: var(--tracking-normal);
+  --typography-jp-body-paragraph-spacing: var(--paragraph-spacing-none);
+}
+
+[data-theme="dark"] {
+  /* ===================== SEMANTIC : color (dark overrides) ===================== */
+  --surface-bg-canvas: var(--color-black);
+  --surface-bg-default: var(--color-black);
+  --surface-bg-product: var(--color-grey-900);
+  --surface-bg-product-hover: var(--color-grey-800);
+  --surface-bg-raised: var(--color-grey-950);
+  --surface-bg-inverse: var(--color-white);
+  --surface-bg-accent: var(--color-volt-500);
+  --surface-bg-disabled: var(--color-grey-800);
+  --surface-bg-sale: var(--color-red-400);
+
+  --action-primary-default: var(--color-white);
+  --action-primary-hover: var(--color-grey-200);
+  --action-primary-pressed: var(--color-grey-300);
+  --action-secondary-border: var(--color-white);
+
+  --text-default: var(--color-white);
+  --text-secondary: var(--color-grey-400);
+  --text-inverse: var(--color-black);
+  --text-on-action: var(--color-black);
+  --text-on-accent: var(--color-black);
+  --text-accent: var(--color-volt-500);
+  --text-sale: var(--color-red-400);
+  --text-disabled: var(--color-grey-600);
+
+  --icon-default: var(--color-white);
+  --icon-secondary: var(--color-grey-400);
+  --icon-inverse: var(--color-black);
+  --icon-disabled: var(--color-grey-600);
+
+  --border-default: var(--color-grey-700);
+  --border-strong: var(--color-white);
+  --border-focus: var(--color-info-400);
+  --border-sale: var(--color-red-400);
 }
