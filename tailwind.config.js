@@ -97,6 +97,23 @@ export default {
         normal: 'var(--tracking-normal)',
         wide: 'var(--tracking-wide)',
       },
+      lineHeight: {
+        'jp-body': 'var(--line-height-jp-body)',
+        'jp-heading': 'var(--line-height-jp-heading)',
+      },
+      borderWidth: {
+        // Design-system control stroke = --stroke-width-button (1.5px).
+        button: 'var(--stroke-width-button)',
+      },
+      minHeight: {
+        // Component-intrinsic control heights from the Figma Button set
+        // (node 77:728, sizes small/medium/large). The design system does not
+        // expose these as variables — Figma uses literal min-heights — so they
+        // are centralized here to keep component JSX free of raw values.
+        'control-sm': '36px',
+        'control-md': '44px',
+        'control-lg': '52px',
+      },
     },
   },
   plugins: [],
