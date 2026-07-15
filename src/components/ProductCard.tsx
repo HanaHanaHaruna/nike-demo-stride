@@ -8,28 +8,29 @@ export interface ProductCardProps {
 
 export function ProductCard({ product, onAddToCart }: ProductCardProps) {
   return (
-    <div className="ProductCard flex flex-col bg-surface-default rounded-md overflow-hidden">
-      <div className="ProductCard-Image flex bg-surface-subtle">
+    <div className="ProductCard flex flex-col bg-surface-default rounded-card overflow-hidden">
+      <div className="ProductCard-Image flex bg-surface-product">
         <img
           src={product.imageUrl}
           alt={product.name}
           className="w-full aspect-square object-cover"
         />
       </div>
-      <div className="ProductCard-Body flex flex-col gap-xs p-md">
+      <div className="ProductCard-Body flex flex-col gap-1 p-4">
         <span className="ProductCard-Category text-sm text-text-secondary">
           {product.category}
         </span>
-        <span className="ProductCard-Name text-md font-medium text-text-primary">
+        <span className="ProductCard-Name text-md font-medium text-text-default">
           {product.name}
         </span>
-        <span className="ProductCard-Price text-md text-text-primary">
+        <span className="ProductCard-Price text-md text-text-default">
           ¥{product.price.toLocaleString('ja-JP')}
         </span>
-        <div className="ProductCard-Action flex pt-sm">
+        <div className="ProductCard-Action flex pt-2">
           <Button
             variant="primary"
             size="md"
+            className="font-jp"
             onClick={() => onAddToCart?.(product.id)}
           >
             カートに追加

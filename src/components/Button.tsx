@@ -10,14 +10,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-brand-primary text-surface-default hover:bg-brand-accent',
+  primary:
+    'bg-action-primary-default text-text-on-action hover:bg-action-primary-hover active:bg-action-primary-pressed',
   secondary:
-    'bg-surface-default text-brand-primary border border-brand-primary hover:bg-surface-subtle',
+    'bg-surface-default text-text-default border border-action-secondary-border hover:bg-surface-product',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
-  md: 'px-md py-sm text-md',
-  lg: 'px-lg py-md text-lg',
+  md: 'px-4 py-2 text-md',
+  lg: 'px-6 py-4 text-2xl',
 }
 
 export function Button({
@@ -29,7 +30,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`Button rounded-sm font-medium transition-colors ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      className={`Button rounded-control font-medium transition-colors ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       {...rest}
     >
       {children}
