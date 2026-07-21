@@ -11,31 +11,31 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 'stride-air-runner',
-    name: 'Stride Air Runner',
-    category: "Men's Running",
+    name: 'Stride Air Runner Tank Top',
+    category: "Men's Tops",
     price: 14300,
     originalPrice: 18000,
-    imageUrl: 'https://placehold.co/400x400/F5F5F5/111111?text=Air+Runner',
+    imageUrl: '/images/products/air-runner-tank.png',
   },
   {
     id: 'stride-court-classic',
     name: 'Stride Court Classic',
     category: "Men's Tights",
     price: 11800,
-    imageUrl: 'https://placehold.co/400x400/F5F5F5/111111?text=Court+Classic',
+    imageUrl: '/images/products/court-classic.png',
   },
   {
     id: 'stride-flex-trainer',
     name: 'Stride Flex Trainer',
     category: "Men's Training",
     price: 12900,
-    imageUrl: 'https://placehold.co/400x400/F5F5F5/111111?text=Flex+Trainer',
+    imageUrl: '/images/products/flex-trainer.png',
   },
   {
     id: 'stride-urban-hi',
     name: 'Stride Urban Hi',
     category: "Men's Shorts",
     price: 15600,
-    imageUrl: 'https://placehold.co/400x400/F5F5F5/111111?text=Urban+Hi',
+    imageUrl: '/images/products/urban-hi.png',
   },
 ]
